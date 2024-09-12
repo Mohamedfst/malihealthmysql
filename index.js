@@ -1,10 +1,10 @@
 import app from './app/app.js'; // Our app
-import 'dotenv/config'; 
+import dotenv from 'dotenv';
+dotenv.config();
+const env = process.env.NODE_ENV;
+import dbConfig from './db.json' with {type: "json"};
+const currentEnv = dbConfig[env];
 
-const PORT = process.env.PORT;
-
-
-// Start the server
-app.listen(PORT, () => {
-  console.log("Server is running in mode:", process.env.NODE_ENV);
-});
+app.listen(currentEnv.port,() => {
+  console.log(`APP LISTENING ON http://${currentEnv.host}:${currentEnv.port}`);
+})

@@ -1,16 +1,19 @@
 import mysql from 'mysql2';
-import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config();
+const env = process.env.NODE_ENV;
+import dbConfig from './db.json' with {type: "json"};
+const currentEnv = dbConfig[env];
 
 connection();
-
 function connection() {
   let dbParameters = {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_DATABASE
+    host: currentEnv.host,
+    user: currentEnv.user,
+    password: currentEnv.password,
+    database: currentEnv.data
   };
-  console.log(dbParameters);
+  // console.log(dbParameters);
   let connection = mysql.createConnection(dbParameters);
   //connect to mysql
   connection.connect(function (err) {

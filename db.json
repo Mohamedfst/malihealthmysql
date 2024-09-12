@@ -1,0 +1,34 @@
+{
+  "development": {
+    "host": "localhost",
+    "port": "8080",
+    "user": "root",
+    "password": "M0m0r0ck5",
+    "data": "testdb"
+  },
+  "production": {
+    "host": "production",
+    "port": "8090",
+    "user": "root",
+    "password": "M0m0r0ck5",
+    "data": "livedb"
+  },
+  "testUser" : {
+      "user_name": "testusermocha",
+      "user_middlename": "",
+      "user_lastname": "Keita",
+      "user_dob": "01/03/3000",
+      "user_phone": "510-282-4142",
+      "user_emergencyNumber": "415-640-0262",
+      "user_email": "testusermocha@malimail.com",
+      "user_address": "hdkdpw8*sWkL!NSkpEq",
+      "user_medlicense": "Q23qrd07",
+      "user_natlicense": "US032489",
+      "user_languages": "English, Spanish",
+      "user_team": "Community Worker",
+      "user_center": "Concord CSCOM",
+      "user_organization": "CSCOM",
+      "user_role": "Care Provider",
+      "user_photo": "Ariel Photo"
+    }
+}

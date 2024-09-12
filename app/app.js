@@ -28,12 +28,12 @@ app.post("/hcworkers", async (req, res) => {
         user_role,
         user_photo
         } = req.body;
-      const insertId = await connection.promise().query(
+      const [{insertId}] = await connection.promise().query(
         `INSERT INTO hcworkers (user_name, user_middlename, user_lastname,user_dob,user_phone,user_emergencyNumber,user_email,user_address,user_medlicense,user_natlicense,user_languages,user_team,user_center,user_organization,user_role,user_photo) 
             VALUES (?, ?,?,?,?, ?,?,?,?, ?,?,?,?, ?,?,?)`,
         [user_name, user_middlename, user_lastname,user_dob,user_phone,user_emergencyNumber,user_email,user_address,user_medlicense,user_natlicense,user_languages,user_team,user_center,user_organization,user_role,user_photo]
       );
-      res.status(201).json({
+        res.status(201).json({
         message: insertId,
         data: {user_name, user_middlename, user_lastname,user_dob,user_phone,user_emergencyNumber,user_email,user_address,user_medlicense,user_natlicense,user_languages,user_team,user_center,user_organization,user_role,user_photo},
       });
@@ -53,6 +53,7 @@ app.post("/hcworkers", async (req, res) => {
           users: data[0],
         });
       } catch (err) {
+        err;
         res.status(500).json({
           message: err,
         });
